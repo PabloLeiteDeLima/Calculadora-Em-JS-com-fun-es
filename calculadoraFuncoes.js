@@ -9,6 +9,9 @@ const teclado = readline.createInterface({
     output: process.stdout
 })
 
+teclado.question('Informe seu nome: ', (nome) => {
+
+
 teclado.question('Digite o primeiro valor: ', (valor1) =>{
     teclado.question('Qual operação quer fazer (+, -, *, /): ', (op) => {    
         teclado.question('Digite o segundo valor: ', (valor2) => {
@@ -23,24 +26,22 @@ teclado.question('Digite o primeiro valor: ', (valor1) =>{
         const v1 = parseInt(valor1)
         const v2 = parseInt(valor2)
 
+        console.log('\n',nome,',Voçe escolheu a operação: (',op,')')    
         // Aqui vamos tratar a operação escolhida pelo usuário.
         if(op == '+'){
-            console.log('\n\nVoçe escolheu a soma.')
             console.log(v1, ' + ', v2, ' = ', v1 + v2)    
         }else if(op == '-'){
-            console.log('\n\nVoçe escolheu a subtração.')
             console.log(v1, ' - ', v2, ' = ', v1 - v2)
         }else if(op == '*'){
-            console.log('\n\nVoçe escolheu a multiplicação.')
             console.log(v1, ' * ', v2, ' = ', v1 * v2)
         }else if(op == '/'){
-            console.log('\n\nVoçe escolheu a multiplicação.')
             console.log(v1, ' / ', v2, ' = ', v1 / v2)
-        }else{// Tratando quando usuário escolhe a operação diferente.
+        }else{// Tratando quando usuário escolhe a operação diferente/inválida.
             console.log('Escolha uma operação válida.')
             console.log('Operações válidas para escolha (+, -, *, /)')
         }
         teclado.close()// Fechando a interface
         })    
     })
+})
 })
